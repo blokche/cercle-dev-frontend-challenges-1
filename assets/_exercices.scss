@@ -41,6 +41,10 @@ $canvas-color: map-get(variables.$colors, Canvas);
   // Exercice 1
   .ex1 {
     .box {
+      // << SOLUTION >>
+      &:has(.pick-me-up) {
+        border-color: $danger-color;
+      }
     }
   }
 
@@ -53,10 +57,18 @@ $canvas-color: map-get(variables.$colors, Canvas);
       text-underline-offset: 2px;
     }
     ul.todos-list {
-      li {
-        &::marker {
-          color: inherit;
+      // << SOLUTION >>
+      &:has(li.highlight:first-child) {
+        li {
+          list-style: square;
+          &::marker {
+            color: $danger-color;
+          }
         }
+      }
+      &:has(li:nth-child(5)) {
+        padding: 24px 36px;
+        background-color: $neutral-color;
       }
     }
   }
@@ -78,6 +90,18 @@ $canvas-color: map-get(variables.$colors, Canvas);
         aspect-ratio: 1;
         border-radius: 6px;
         background-color: gainsboro;
+        transition: transform 200ms ease, background-color 100ms linear;
+
+        // << SOLUTION >>
+        &:hover {
+          background-color: $accent-color;
+        }
+
+        &:has(+ :hover),
+        &:hover + li {
+          transform: scale(0.85) rotate(0.5turn);
+          background-color: $danger-color;
+        }
       }
     }
   }
@@ -107,6 +131,11 @@ $canvas-color: map-get(variables.$colors, Canvas);
         background-color: darken(map-get(variables.$colors, Accent), 10%);
       }
     }
+
+    // << SOLUTION >>
+    label:has(:not(:checked)) + button {
+      display: none;
+    }
   }
 
   // Exercice 5
@@ -120,6 +149,11 @@ $canvas-color: map-get(variables.$colors, Canvas);
       .item {
         background-color: $accent-color;
         height: 30px;
+      }
+
+      // << SOLUTION >>
+      &:has(.item:last-child:nth-child(odd)) {
+        grid-template-columns: repeat(3, 1fr);
       }
     }
   }
@@ -143,6 +177,12 @@ $canvas-color: map-get(variables.$colors, Canvas);
         max-width: 100%;
         height: 100%;
         object-fit: cover;
+      }
+
+      // << SOLUTION >>
+      &:has(img:not([alt])) {
+        outline-offset: 2px;
+        outline: solid 2px $danger-color;
       }
     }
   }
@@ -197,6 +237,46 @@ $canvas-color: map-get(variables.$colors, Canvas);
         &:hover,
         &:focus-visible {
           background-color: darken($accent-color, 10%);
+        }
+      }
+
+      // << SOLUTION >>
+      &:has(:user-valid):not(:has(:invalid)) {
+        border-color: $success-color;
+
+        .form-title {
+          color: $success-color;
+        }
+
+        button[type="submit"] {
+          background-color: $success-color;
+          &:hover,
+          &:focus-visible {
+            background-color: lighten($success-color, 5%);
+          }
+        }
+      }
+
+      .form-input:has(:user-invalid) {
+        input {
+          border-color: $danger-color;
+        }
+        label {
+          font-weight: bold;
+          color: $danger-color;
+        }
+        & + .error-message {
+          display: block;
+        }
+      }
+
+      .form-input:has(:user-valid) {
+        input {
+          border-color: $success-color;
+        }
+        label {
+          font-weight: bold;
+          color: $success-color;
         }
       }
     }
