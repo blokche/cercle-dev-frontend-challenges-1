@@ -2,7 +2,9 @@
 
 $accent-color: map-get(variables.$colors, Accent);
 $danger-color: map-get(variables.$colors, Danger);
+$success-color: map-get(variables.$colors, Success);
 $neutral-color: map-get(variables.$colors, Neutral);
+$text-color: map-get(variables.$colors, Text);
 $canvas-color: map-get(variables.$colors, Canvas);
 
 @layer exercices {
@@ -146,8 +148,77 @@ $canvas-color: map-get(variables.$colors, Canvas);
   }
 
   .ex7 {
-    ul {
-      columns: 200px;
+    form {
+      margin-block: 24px 8px;
+      max-inline-size: 420px;
+      padding: 24px;
+      border-radius: 6px;
+      border: solid 1px lighten($accent-color, 40%);
+      background-color: $neutral-color;
+      box-shadow: 0 3px 10px -3px transparentize($text-color, 0.7);
+
+      .form-title {
+        font-weight: 600;
+        text-align: center;
+        color: $accent-color;
+        margin-block: 8px 16px;
+      }
+      .error-message {
+        display: none;
+        margin: 6px 0 0;
+      }
+      .error-message + .form-input {
+        margin-block-start: 16px;
+      }
+      .form-input {
+        display: grid;
+        gap: 4px;
+        input {
+          border-radius: 4px;
+          border: solid 2px lighten($accent-color, 40%);
+          padding: 8px;
+          font: inherit;
+        }
+      }
+
+      button[type="submit"] {
+        appearance: none;
+        display: block;
+        margin-inline-start: auto;
+        margin-block-start: 16px;
+        font: inherit;
+        border: none;
+        cursor: pointer;
+        padding: 6px 12px;
+        border-radius: 4px;
+        color: $canvas-color;
+        background-color: $accent-color;
+        transition: background-color 200ms linear;
+        &:hover,
+        &:focus-visible {
+          background-color: darken($accent-color, 10%);
+        }
+      }
     }
+  }
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
   }
 }

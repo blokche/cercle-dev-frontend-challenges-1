@@ -151,33 +151,35 @@
       <!-- Exercice 7 -->
       <section class="exercice ex7">
         <p class="exercice-instruction">
-          Enfin, pour terminer, un exercice plus costaud : je veux appliquer un
-          style (background, couleur de texte... libre à vous) aux éléments de
-          ma sélection. Celle-ci, dans le html, démarre par l'élément portant
-          l'attribut
-          <code>[data-range='start']</code> et se termine par l'élément portant
-          l'attribut <code>[data-range='end']</code> (ces deux éléments entrant
-          eux aussi dans la sélection).
+          Pour ce dernier exercice, je veux appliquer une couleur rouge aux
+          labels et bordures en cas d'erreur sur le formulaire, ainsi
+          qu'afficher le message d'erreur présent après chaque champ. Dans le
+          cas contraire (état valide), je veux ne pas afficher ces messages et
+          afficher une couleur verte pour les bordures et labels.
         </p>
-        <div class="users-list">
-          <ul>
-            <li>Guillaume</li>
-            <li>Alexis M.</li>
-            <li>Julien Deb.</li>
-            <li>&Eacute;lodie</li>
-            <li>Estelle</li>
-            <li data-range="start">Lotfi</li>
-            <li>Morgane</li>
-            <li>Coralie</li>
-            <li>Julien Do.</li>
-            <li>Alexis N.</li>
-            <li>Jérémy</li>
-            <li data-range="end">Natacha</li>
-            <li>Tanguy</li>
-            <li>Jeanne</li>
-            <li>Anthony</li>
-          </ul>
-        </div>
+        <p>
+          <u>Note</u> : une animation <code>shake</code> est présente, si vous
+          souhaitez vous amuser un peu !
+        </p>
+        <form action="" novalidate>
+          <h2 class="form-title">Souscrire à la newsletter</h2>
+          <div class="form-input">
+            <label for="ex7-fullname">Nom complet</label>
+            <input type="text" id="ex7-fullname" required minlength="2" />
+          </div>
+          <p class="error-message">
+            <span class="icon">⚠️ </span> Veuillez renseigner votre nom complet.
+          </p>
+          <div class="form-input">
+            <label for="ex7-email">Adresse électronique</label>
+            <input type="email" name="email" id="ex7-email" />
+          </div>
+          <p class="error-message">
+            <span class="icon">⚠️ </span>
+            Veuillez renseigner votre adresse électronique.
+          </p>
+          <button type="submit">Je m'abonne à la newsletter</button>
+        </form>
       </section>
     </div>
     <script type="module" src="/main.js"></script>

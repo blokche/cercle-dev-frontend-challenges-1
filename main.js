@@ -7,8 +7,10 @@ console.log(
   "color: ghostwhite; background: #c22d2d; padding: 6px 8px;"
 );
 
-$("form").addEventListener("submit", (event) => {
-  event.preventDefault();
+$$("form").forEach((form) => {
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+  });
 });
 
 const todo_list = $(".ex2 .todos-list");
