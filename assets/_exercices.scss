@@ -1,0 +1,153 @@
+@use "variables" as variables;
+
+$accent-color: map-get(variables.$colors, Accent);
+$danger-color: map-get(variables.$colors, Danger);
+$neutral-color: map-get(variables.$colors, Neutral);
+$canvas-color: map-get(variables.$colors, Canvas);
+
+@layer exercices {
+  .boxes {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, 200px);
+    .box {
+      border: solid 1px;
+      width: 200px;
+      aspect-ratio: 1;
+      display: flex;
+      flex-flow: row wrap;
+      align-items: center;
+      justify-content: center;
+      align-content: center;
+      border-radius: 8px;
+      gap: 8px;
+      border-width: 2px;
+      border-color: transparent;
+      background-color: $canvas-color;
+      .item {
+        width: 80px;
+        aspect-ratio: 1;
+        border-radius: 8px;
+        background-color: gainsboro;
+        &.pick-me-up {
+          background-color: transparentize($accent-color, 0.6);
+        }
+      }
+    }
+  }
+
+  // Exercice 1
+  .ex1 {
+    .box {
+    }
+  }
+
+  // Exercice 2
+  .ex2 {
+    // Let's play!
+    .highlight {
+      color: darken($accent-color, 15%);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    ul.todos-list {
+      li {
+        &::marker {
+          color: inherit;
+        }
+      }
+    }
+  }
+
+  // Exercice 3
+  .ex3 {
+    ul {
+      margin-inline: auto;
+      padding: 8px;
+      display: flex;
+      gap: 8px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      li {
+        // Evidemment, ceci n'est pas accessible !
+        cursor: pointer;
+        width: 24px;
+        aspect-ratio: 1;
+        border-radius: 6px;
+        background-color: gainsboro;
+      }
+    }
+  }
+
+  // Exercice 4
+  .ex4 {
+    label {
+      display: block;
+      margin-block-end: 8px;
+    }
+    input[type="checkbox"] {
+      width: 1.6rem;
+      height: 1.6rem;
+      accent-color: lighten(map-get(variables.$colors, Accent), 25%);
+    }
+    button[type="submit"] {
+      border: none;
+      background-color: map-get(variables.$colors, Accent);
+      color: map-get(variables.$colors, Canvas);
+      font-size: inherit;
+      padding: 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 200ms linear;
+      &:focus-visible,
+      &:hover {
+        background-color: darken(map-get(variables.$colors, Accent), 10%);
+      }
+    }
+  }
+
+  // Exercice 5
+  .ex5 {
+    .grid {
+      width: 200px;
+      display: grid;
+      gap: 4px;
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: 30px;
+
+      .item {
+        background-color: $accent-color;
+      }
+    }
+  }
+
+  .ex6 {
+    figure {
+      padding: 24px;
+      margin: 0;
+      background-color: $neutral-color;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px 8px;
+      & + figure {
+        margin-block-start: 16px;
+      }
+      figcaption {
+        font-size: 0.9em;
+        grid-column: span 2;
+      }
+      img {
+        max-width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .ex7 {
+    ul {
+      columns: 200px;
+    }
+  }
+}

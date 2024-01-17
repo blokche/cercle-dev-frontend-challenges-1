@@ -1,0 +1,10 @@
+@layer base, layouts, components, exercices;
+
+@import "base";
+@import "layouts";
+@import "components";
+@import "exercices";
+
+.wrapper .exercice:last-child {
+  margin-block-end: 24px;
+}

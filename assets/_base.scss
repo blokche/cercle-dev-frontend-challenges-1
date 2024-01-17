@@ -1,0 +1,44 @@
+@use "variables" as variables;
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: system-ui, sans-serif;
+    font-size: 62.5%;
+    font-size-adjust: none;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+    background-color: map-get(variables.$colors, Canvas);
+    color: map-get(variables.$colors, Text);
+  }
+
+  body {
+    padding: 0;
+    margin: 0;
+    font-size: 1.6rem;
+  }
+
+  :where(h1, h2, h3, h4, h5, h6) {
+    line-height: 1;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  :where(p) {
+    text-wrap: pretty;
+  }
+
+  :where(a, u) {
+    text-underline-offset: 0.4rem;
+    text-decoration-thickness: 0.1rem;
+  }
+
+  :where(span.icon) {
+    font-size: 2rem;
+  }
+}

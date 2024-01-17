@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frontend challenges</title>
+    <link rel="stylesheet" href="/assets/style.scss" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="banner">
+        <h1>Frontend Challenges</h1>
+        <p>Sélecteur <code>:has</code></p>
+      </header>
+
+      <!-- Exercice pratique 1 -->
+      <section class="exercice ex1">
+        <p class="exercice-instruction">
+          Depuis la feuille de style <code>_exercices.scss</code>, sélectionnez
+          les conteneurs <code>.box</code> possédant au moins un élément portant
+          la classe <code>.pick-me-up</code> et appliquer leur une bordure de
+          2px de la couleur de votre choix.
+        </p>
+        <div class="boxes">
+          <div class="box">
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+          </div>
+
+          <div class="box">
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item pick-me-up"></div>
+            <div class="item"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Exercice pratique 2 -->
+      <section class="exercice ex2">
+        <p class="exercice-instruction">
+          Pour cet exercice, appliquez aux puces des éléments de la liste une
+          couleur différente lorsque le premier élément de cette liste porte la
+          classe&nbsp;<code>.highlight</code>.
+        </p>
+        <p class="exercice-instruction">
+          Appliquez également à cette liste un <code>padding</code> et une
+          couleur de fond relativement neutre si elle comporte un
+          <u>au moins 5 éléments</u>.
+        </p>
+        <ul class="todos-list">
+          <li class="highlight">Nettoyer mon bureau</li>
+          <li>Remplir mon toggl</li>
+          <li>Eteindre les lumières en sortant de la salle de réunion</li>
+          <li>Relire le compte-rendu de réunion</li>
+          <li>Consulter et ranger ma boîte électronique</li>
+          <li>Répondre aux 3 sondages encore en attente</li>
+        </ul>
+      </section>
+
+      <!-- Exercice 3 -->
+      <section class="exercice ex3">
+        <p class="exercice-instruction">
+          Un peu d'interaction maintenant. La liste ici importe peu, ce sont les
+          relations entre <code>siblings</code> qui vont nous intéresser
+          véritablement : on va vouloir appliquer une couleur à l'élément qui
+          précéde ainsi qu'à l'élément qui suit celui sur lequel notre pointer
+          se situe&nbsp;&ndash;&nbsp;voire une transformation si vous souhaitez,
+          soyez créatif ! <span class="icon">🎨</span> Tandis qu'on en
+          appliquera une autre sur l'élément pointé. Libre à vous, faites
+          quelque chose d'harmonieux tout de même
+          <span class="icon">😁</span>
+        </p>
+
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </section>
+
+      <!-- Exercice 4 -->
+      <section class="exercice ex4">
+        <p class="exercice-instruction">
+          Ce n'est pas vraiment une bonne pratique en matière d'accessibilité
+          mais je voudrais cacher le bouton du formulaire tant que la case à
+          cocher n'est pas cochée. A vous de jouer !
+        </p>
+        <form action="">
+          <label for="accept">
+            <input type="checkbox" id="accept" />
+            J'accepte les conditions générales de vente
+          </label>
+          <button type="submit">Poursuivre</button>
+        </form>
+      </section>
+
+      <!-- Exercice 5 -->
+      <section class="exercice ex5">
+        <p class="exercice-instruction">
+          Pour cet exercice, je vais vouloir afficher le dernier élément sur 2
+          colonnes dans le cas d'un nombre impair d'éléments dans le conteneur.
+        </p>
+        <div class="grid">
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+        </div>
+      </section>
+
+      <!-- Exercice 6 -->
+      <section class="exercice ex6">
+        <p class="exercice-instruction">
+          Puisqu'on a fait des choses vilaines en matière d'accessibilité dans
+          l'exercice 4, on va se rattraper ici : je voudrais ajouter un
+          <code>outline</code> de couleur rouge à tous les éléments
+          <code>figure</code> dans lesquels une image n'aurait pas d'attribut
+          <code>alt</code> (vide ou pas). Parce que c'est très vilain aussi !
+        </p>
+        <div>
+          <figure>
+            <img src="/images/food.jpg" />
+            <img src="/images/food-2.jpg" alt="" />
+            <figcaption>
+              Ca semble tellement délicieux que c'est de la torture de telles
+              images, surtout quand les estomacs réclament !
+            </figcaption>
+          </figure>
+
+          <figure>
+            <img src="/images/cat.jpg" alt="" />
+            <img src="/images/cat-2.jpg" alt="" />
+            <figcaption>Les chats, c'est vraiment des br**leurs !</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- Exercice 7 -->
+      <section class="exercice ex7">
+        <p class="exercice-instruction">
+          Enfin, pour terminer, un exercice plus costaud : je veux appliquer un
+          style (background, couleur de texte... libre à vous) aux éléments de
+          ma sélection. Celle-ci, dans le html, démarre par l'élément portant
+          l'attribut
+          <code>[data-range='start']</code> et se termine par l'élément portant
+          l'attribut <code>[data-range='end']</code> (ces deux éléments entrant
+          eux aussi dans la sélection).
+        </p>
+        <div class="users-list">
+          <ul>
+            <li>Guillaume</li>
+            <li>Alexis M.</li>
+            <li>Julien Deb.</li>
+            <li>&Eacute;lodie</li>
+            <li>Estelle</li>
+            <li data-range="start">Lotfi</li>
+            <li>Morgane</li>
+            <li>Coralie</li>
+            <li>Julien Do.</li>
+            <li>Alexis N.</li>
+            <li>Jérémy</li>
+            <li data-range="end">Natacha</li>
+            <li>Tanguy</li>
+            <li>Jeanne</li>
+            <li>Anthony</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
