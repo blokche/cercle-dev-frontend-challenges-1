@@ -114,10 +114,10 @@ $canvas-color: map-get(variables.$colors, Canvas);
       display: grid;
       gap: 4px;
       grid-template-columns: repeat(2, 1fr);
-      grid-auto-rows: 30px;
 
       .item {
         background-color: $accent-color;
+        height: 30px;
       }
     }
   }
